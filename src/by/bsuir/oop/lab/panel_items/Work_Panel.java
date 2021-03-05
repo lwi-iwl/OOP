@@ -9,19 +9,18 @@ public class Work_Panel extends JFrame{
 
     public Work_Panel() {
         work_panel = new JPanel();
-        work_panel.setLayout(new BorderLayout());
         setLocationRelativeTo(null);
         JMenuBar menu = new JMenuBar();
         menu.add(Button_File());
         menu.add(Button_Edit());
-        menu.add(Button_Shapes());
         setJMenuBar(menu);
-        work_panel.setSize(100,100);
+        Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
+        work_panel.setSize(sSize.width-100,sSize.height/10);
         work_panel.setLayout(new BorderLayout());
         work_panel.add(menu, BorderLayout.NORTH);
     }
 
-    public JMenu Button_File()
+    public JMenuItem Button_File()
     {
         JMenu file = new JMenu("Файл");
         JMenuItem create = new JMenuItem("Создать");
@@ -35,8 +34,7 @@ public class Work_Panel extends JFrame{
         return file;
     }
 
-    public JMenu Button_Edit()
-    {
+    public JMenuItem Button_Edit() {
         JMenu edit = new JMenu("Редактирование");
         JMenuItem undo = new JMenuItem("Назад");
         JMenuItem redo = new JMenuItem("Вперёд");
@@ -45,19 +43,7 @@ public class Work_Panel extends JFrame{
         return edit;
     }
 
-    public JMenu Button_Shapes()
-    {
-        JMenu button_shapes = new JMenu("Фигуры");
-        JMenuItem direct = new JMenuItem("Прямая");
-        JMenuItem rectangle = new JMenuItem("Прямоугольник");
-        JMenuItem oval = new JMenuItem("Овал");
-        button_shapes.add(direct);
-        button_shapes.add(rectangle);
-        button_shapes.add(oval);
-        return button_shapes;
-    }
-
-    public JComponent getGUI() {
+    public JComponent get_work_panel() {
         return work_panel;
     }
 
