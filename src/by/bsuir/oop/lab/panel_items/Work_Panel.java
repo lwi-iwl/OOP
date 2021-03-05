@@ -1,27 +1,27 @@
-package by.bsuir.oop.lab.panel;
+package by.bsuir.oop.lab.panel_items;
 import java.awt.*;
 import javax.swing.*;
 
+public class Work_Panel extends JFrame{
 
-public class Panel extends JFrame {
 
-    public Panel() {
-        super("TipaPaint");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+    private JPanel work_panel;
+
+    public Work_Panel() {
+        work_panel = new JPanel();
+        work_panel.setLayout(new BorderLayout());
+        setLocationRelativeTo(null);
         JMenuBar menu = new JMenuBar();
-        menu.add(File());
-        menu.add(Edit());
-        //menu.add(Button_Shapes());
-        JFrame jf = new JFrame("For2D");
-        Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
-        jf.setJMenuBar(menu);
-        jf.setSize(sSize.height - 100, sSize.height - 100);
-        jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
-        jf.setVisible(true);
-        jf.setResizable(false);
+        menu.add(Button_File());
+        menu.add(Button_Edit());
+        menu.add(Button_Shapes());
+        setJMenuBar(menu);
+        work_panel.setSize(100,100);
+        work_panel.setLayout(new BorderLayout());
+        work_panel.add(menu, BorderLayout.NORTH);
     }
 
-    private JMenu File()
+    public JMenu Button_File()
     {
         JMenu file = new JMenu("Файл");
         JMenuItem create = new JMenuItem("Создать");
@@ -32,11 +32,10 @@ public class Panel extends JFrame {
         file.add(save);
         file.add(save_as);
         file.add(open);
-
         return file;
     }
 
-    private JMenu Edit()
+    public JMenu Button_Edit()
     {
         JMenu edit = new JMenu("Редактирование");
         JMenuItem undo = new JMenuItem("Назад");
@@ -46,7 +45,7 @@ public class Panel extends JFrame {
         return edit;
     }
 
-    /*private JMenu Button_Shapes()
+    public JMenu Button_Shapes()
     {
         JMenu button_shapes = new JMenu("Фигуры");
         JMenuItem direct = new JMenuItem("Прямая");
@@ -56,6 +55,10 @@ public class Panel extends JFrame {
         button_shapes.add(rectangle);
         button_shapes.add(oval);
         return button_shapes;
-    }*/
+    }
+
+    public JComponent getGUI() {
+        return work_panel;
+    }
 
 }
