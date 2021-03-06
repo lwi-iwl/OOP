@@ -8,6 +8,7 @@ public class Board extends JPanel{
 
 
     Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
+    Mouse mouse1 = new Mouse();
     public Board() {
         setLayout(new BorderLayout());
         setBackground(Color.WHITE);
@@ -18,9 +19,8 @@ public class Board extends JPanel{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.fillRect(20, 30, 300, 10);
-        Mouse mouse_1 = new Mouse();
-        int x = mouse_1.return_mx();
-        g.drawLine(0,0,x,200);
+        int x = mouse1.GetMx();
+        g.drawLine(0,0,x ,200);
     }
 
 }

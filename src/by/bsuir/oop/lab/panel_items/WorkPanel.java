@@ -2,26 +2,26 @@ package by.bsuir.oop.lab.panel_items;
 import java.awt.*;
 import javax.swing.*;
 
-public class Work_Panel extends JFrame{
+public class WorkPanel extends JFrame{
 
 
-    private JPanel work_panel;
+    private JPanel workPanel;
 
-    public Work_Panel() {
-        work_panel = new JPanel();
+    public WorkPanel() {
+        workPanel = new JPanel();
         setLocationRelativeTo(null);
         JMenuBar menu = new JMenuBar();
-        menu.add(Button_File());
-        menu.add(Button_Edit());
+        menu.add(ButtonFile());
+        menu.add(ButtonEdit());
         setJMenuBar(menu);
         Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
-        work_panel.setSize(sSize.width-100,sSize.height/10);
-        work_panel.setLayout(new BorderLayout());
-        work_panel.add(menu, BorderLayout.NORTH);
-        work_panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
+        workPanel.setSize(sSize.width-100,sSize.height/10);
+        workPanel.setLayout(new BorderLayout());
+        workPanel.add(menu, BorderLayout.NORTH);
+        workPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
     }
 
-    public JMenuItem Button_File()
+    public JMenuItem ButtonFile()
     {
         JMenu file = new JMenu("Файл");
         JMenuItem create = new JMenuItem("Создать");
@@ -35,7 +35,7 @@ public class Work_Panel extends JFrame{
         return file;
     }
 
-    public JMenuItem Button_Edit() {
+    public JMenuItem ButtonEdit() {
         JMenu edit = new JMenu("Редактирование");
         JMenuItem undo = new JMenuItem("Назад");
         JMenuItem redo = new JMenuItem("Вперёд");
@@ -44,8 +44,8 @@ public class Work_Panel extends JFrame{
         return edit;
     }
 
-    public JComponent get_work_panel() {
-        return work_panel;
+    public JComponent getWorkPanel() {
+        return workPanel;
     }
 
 }

@@ -47,12 +47,12 @@ public class Mouse extends
         e.consume();
     }
 
-    public int return_mx()
+    public int GetMx()
     {
         return mx;
     }
 
-    public int return_my()
+    public int GetMy()
     {
         return my;
     }
