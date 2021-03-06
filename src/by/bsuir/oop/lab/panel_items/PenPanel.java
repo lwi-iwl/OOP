@@ -10,6 +10,7 @@ public class PenPanel {
 
     public PenPanel() {
         penPanel = new JPanel();
+        
         Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
         Color WHITE_GRAY = new Color(220, 220, 220);
 
