@@ -27,6 +27,7 @@ public class Panel {
 
     public JComponent get_main_panel() {
 
+        
         return main_panel;
     }
 }
