@@ -5,7 +5,8 @@ import java.awt.*;
 import by.bsuir.oop.lab.mouse.Mouse;
 
 public class Board extends JPanel{
-
+   
+    private Mouse mouse = new Mouse();
 
     Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
     public Board() {
@@ -18,8 +19,7 @@ public class Board extends JPanel{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.fillRect(20, 30, 300, 10);
-        Mouse mouse_1 = new Mouse();
-        int x = mouse_1.return_mx();
+        int x = mouse.getMx();
         g.drawLine(0,0,x,200);
     }
 
