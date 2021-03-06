@@ -13,8 +13,8 @@ public class Window extends JFrame {
         jf.setSize(sSize.width - 100, sSize.height - 100);
         jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
 
-        Panel m_panel = new Panel();
-        jf.add(m_panel.get_main_panel());
+        Panel panel = new Panel();
+        jf.add(panel.getMainPanel());
         jf.setVisible(true);
         jf.setResizable(false);
     }
