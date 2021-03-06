@@ -6,14 +6,14 @@ import by.bsuir.oop.lab.panel_items.*;
 
 
 public class Panel {
-    private JPanel main_panel;
+    private JPanel mainPanel;
 
     public Panel() {
-        main_panel = new JPanel();
-        main_panel.setLayout(new BoxLayout(main_panel, BoxLayout.Y_AXIS));
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-        Work_Panel w_panel = new Work_Panel();
-        main_panel.add(w_panel.get_work_panel());
+        WorkPanel workPanel = new WorkPanel();
+        mainPanel.add(work.getWorkPanel());
 
         Shapes_Panel s_panel = new Shapes_Panel();
         main_panel.add(s_panel.get_shapes_panel());
@@ -22,6 +22,8 @@ public class Panel {
 
         Pen_Panel p_panel = new Pen_Panel();
         main_panel.add(p_panel.get_pen_panel());
+
+        //Короче переделывай все снейк кейсы)
 
     }
 
