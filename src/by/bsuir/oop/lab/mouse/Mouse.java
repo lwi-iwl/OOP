@@ -6,7 +6,8 @@ import java.awt.event.*;
 import java.applet.*;
 import java.applet.Applet;
 
-public class Mouse extends Applet implements MouseMotionListener, MouseListener{
+public class Mouse extends
+        Applet implements MouseMotionListener, MouseListener{
     int width, height;
     int mx, my;  // the mouse coordinates
     boolean isButtonPressed = false;
