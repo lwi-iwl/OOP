@@ -46,12 +46,12 @@ public class Mouse extends Applet implements MouseMotionListener, MouseListener{
         e.consume();
     }
 
-    public int return_mx()
+    public int getMx()
     {
         return mx;
     }
 
-    public int return_my()
+    public int getMy()
     {
         return my;
     }
