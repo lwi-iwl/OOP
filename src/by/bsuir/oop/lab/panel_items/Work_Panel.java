@@ -18,6 +18,7 @@ public class Work_Panel extends JFrame{
         work_panel.setSize(sSize.width-100,sSize.height/10);
         work_panel.setLayout(new BorderLayout());
         work_panel.add(menu, BorderLayout.NORTH);
+        work_panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
     }
 
     public JMenuItem Button_File()
