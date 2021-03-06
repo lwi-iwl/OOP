@@ -8,10 +8,9 @@ public class Board extends JPanel{
 
     Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
     public Board() {
-        setLocation(200, sSize.width/200);
-        setBackground(Color.WHITE);
-        setPreferredSize(new Dimension(sSize.width/2, sSize.height/2));
         setLayout(new BorderLayout());
+        setBackground(Color.WHITE);
+        setPreferredSize(new Dimension(sSize.width/2, sSize.height/5*2));
     }
 
     @Override
