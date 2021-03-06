@@ -6,28 +6,28 @@ import by.bsuir.oop.lab.panel_items.*;
 
 
 public class Panel {
-    private JPanel main_panel;
+    private JPanel mainPanel;
 
     public Panel() {
-        main_panel = new JPanel();
-        main_panel.setLayout(new BoxLayout(main_panel, BoxLayout.Y_AXIS));
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-        Work_Panel w_panel = new Work_Panel();
-        main_panel.add(w_panel.get_work_panel());
+        WorkPanel wpanel = new WorkPanel();
+        mainPanel.add(wpanel.getWorkPanel());
 
-        Shapes_Panel s_panel = new Shapes_Panel();
-        main_panel.add(s_panel.get_shapes_panel());
+        ShapesPanel spanel = new ShapesPanel();
+        mainPanel.add(spanel.getShapesPanel());
 
-        main_panel.add(new Board());
+        mainPanel.add(new Board());
 
-        Pen_Panel p_panel = new Pen_Panel();
-        main_panel.add(p_panel.get_pen_panel());
+        PenPanel ppanel = new PenPanel();
+        mainPanel.add(ppanel.getPenPanel());
 
     }
 
-    public JComponent get_main_panel() {
+    public JComponent getMainPanel() {
 
-        
-        return main_panel;
+
+        return mainPanel;
     }
 }
