@@ -2,11 +2,16 @@ package by.bsuir.oop.lab.panel_items;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import by.bsuir.oop.lab.shapes.Line;
 
 public class ShapesPanel {
     private JPanel shapesPanel;
 
-    public ShapesPanel() {
+    Graphics g2;
+    public ShapesPanel(Graphics g) {
+        this.g2 = g;
         shapesPanel = new JPanel();
         Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
         Color WHITE_GRAY = new Color(220, 220, 220);
@@ -17,7 +22,6 @@ public class ShapesPanel {
         lineButton.setBackground(WHITE_GRAY);
         lineButton.setLayout(new BorderLayout());
         shapesPanel.add(lineButton);
-
 
         JButton rectangleButton = new JButton("Прямоугольник");
         rectangleButton.setSize(sSize.width/12, sSize.height/40);
@@ -40,27 +44,29 @@ public class ShapesPanel {
         triangleButton.setLayout(new BorderLayout());
         shapesPanel.add(triangleButton);
 
-        JButton trapezoidButton = new JButton("Трапеция");
-        trapezoidButton.setSize(sSize.width/12, sSize.height/40);
-        trapezoidButton.setLocation(sSize.width/1000 + sSize.width/11*4, sSize.width/200);
-        trapezoidButton.setBackground(WHITE_GRAY);
-        trapezoidButton.setLayout(new BorderLayout());
-        shapesPanel.add(trapezoidButton);
+
+        JButton userButton = new JButton("Загрузить плагин");
+        userButton.setSize(sSize.width/11, sSize.height/40);
+        userButton.setLocation(sSize.width/1000 + sSize.width/11*4, sSize.width/200);
+        userButton.setBackground(WHITE_GRAY);
+        userButton.setLayout(new BorderLayout());
+        shapesPanel.add(userButton);
 
 
         JButton polygonButton = new JButton("Многоугольник:");
         polygonButton.setSize(sSize.width/12, sSize.height/40);
-        polygonButton.setLocation(sSize.width/1000 + sSize.width/11*5, sSize.width/200);
+        polygonButton.setLocation(sSize.width/1000 + sSize.width/11*5 + sSize.width/120, sSize.width/200);
         polygonButton.setBackground(WHITE_GRAY);
         polygonButton.setLayout(new BorderLayout());
         shapesPanel.add(polygonButton);
 
         JTextPane polygonNumber = new JTextPane();
         polygonNumber.setSize(sSize.width/35, sSize.height/40);
-        polygonNumber.setLocation(sSize.width/1000 + sSize.width/11*6, sSize.width/200);
+        polygonNumber.setLocation(sSize.width/1000 + sSize.width/11*6 + sSize.width/400, sSize.width/200);
         polygonNumber.setBackground(WHITE_GRAY);
         polygonNumber.setLayout(new BorderLayout());
         shapesPanel.add(polygonNumber);
+
 
         shapesPanel.setLayout(new BorderLayout());
     }

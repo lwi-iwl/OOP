@@ -25,6 +25,7 @@ public class PenPanel {
         colorPanel.setLocation(sSize.width/1000, 0);
         penPanel.add(colorPanel);
 
+
         JButton polygonButton = new JButton("Выбрать размер кисти:");
         polygonButton.setSize(sSize.width/9, sSize.height/40);
         polygonButton.setLocation(sSize.width/1000 + sSize.width/11*4, sSize.width/200);

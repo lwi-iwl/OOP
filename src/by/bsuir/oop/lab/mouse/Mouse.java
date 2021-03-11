@@ -1,15 +1,14 @@
 package by.bsuir.oop.lab.mouse;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
-import java.applet.Applet;
+import by.bsuir.oop.lab.paint.Board;
 
 public class Mouse extends Applet implements MouseMotionListener, MouseListener{
     int width, height;
-    int mx, my;  // the mouse coordinates
-    boolean isButtonPressed = false;
+    int mx, my;
+    int isPressed = 0;
 
     public void init() {
         width = getSize().width;
@@ -31,17 +30,23 @@ public class Mouse extends Applet implements MouseMotionListener, MouseListener{
 
     }
     public void mousePressed( MouseEvent e ) {
-
+        isPressed = 1;
     }
     public void mouseReleased( MouseEvent e ) {
-
+        isPressed = 0;
     }
     public void mouseMoved( MouseEvent e ) {
 
+        mx = e.getX();
+        my = e.getY();
+
+        repaint();
+        e.consume();
     }
     public void mouseDragged( MouseEvent e ) {
         mx = e.getX();
         my = e.getY();
+
         repaint();
         e.consume();
     }
@@ -54,6 +59,12 @@ public class Mouse extends Applet implements MouseMotionListener, MouseListener{
     public int getMy()
     {
         return my;
+    }
+
+    public int getIsPressed() {return isPressed;}
+
+    public void paint(Graphics g) {
+        g.drawLine(0,0,mx, my);
     }
 
 }
