@@ -16,7 +16,7 @@ public class Triangle extends Shape{
     }
     public void draw(Graphics g) {
         int xarray[] = { x, x+width, (x+width)/2, x };
-        int yarray[] = { y, y, y+height, y};
+        int yarray[] = { y+height, y+height, y, y+height};
         g.drawPolygon(xarray, yarray, 4);
     }
 }

@@ -18,7 +18,7 @@ public class Panel {
         WorkPanel wpanel = new WorkPanel();
         mainPanel.add(wpanel.getWorkPanel());
 
-        ShapesPanel spanel = new ShapesPanel(board.getGraphics());
+        ShapesPanel spanel = new ShapesPanel(board);
         mainPanel.add(spanel.getShapesPanel());
 
         mainPanel.add(board);
