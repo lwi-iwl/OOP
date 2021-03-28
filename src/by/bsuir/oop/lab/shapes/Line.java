@@ -16,8 +16,12 @@ public class Line extends Shape{
         this.x2 = x2;
         this.y2 = y2;
     }
+    public void Parameters(int x, int y, int width, int height)
+    {
+    }
     @Override
     public void draw(Graphics g) {
+
         g.drawLine(x1, y1, x2, y2);
     }
 }

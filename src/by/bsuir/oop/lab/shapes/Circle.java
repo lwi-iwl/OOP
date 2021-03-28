@@ -7,7 +7,10 @@ public class Circle extends Shape {
     int y;
     int width;
     int height;
-    public Circle(int x, int y, int width, int height)
+    public Circle()
+    {
+    }
+    public void Parameters(int x, int y, int width, int height)
     {
         this.x = x;
         this.y = y;

@@ -3,8 +3,11 @@ import javax.swing.*;
 
 import by.bsuir.oop.lab.paint.Board;
 import by.bsuir.oop.lab.panel_items.*;
+import by.bsuir.oop.lab.shapes.Line;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class Panel {
@@ -12,6 +15,7 @@ public class Panel {
 
     public Panel() {
         Board board = new Board();
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
@@ -22,9 +26,7 @@ public class Panel {
         mainPanel.add(spanel.getShapesPanel());
 
         mainPanel.add(board);
-
-        PenPanel ppanel = new PenPanel();
-        mainPanel.add(ppanel.getPenPanel());
+        mainPanel.add(new PenPanel());
 
     }
 

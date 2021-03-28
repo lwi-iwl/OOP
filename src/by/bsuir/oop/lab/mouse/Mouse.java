@@ -4,67 +4,45 @@ import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
 import by.bsuir.oop.lab.paint.Board;
+import by.bsuir.oop.lab.panel_items.ShapesPanel;
+import by.bsuir.oop.lab.shapes.Circle;
+import by.bsuir.oop.lab.shapes.Line;
+import by.bsuir.oop.lab.shapes.Shape;
 
-public class Mouse extends Applet implements MouseMotionListener, MouseListener{
-    int width, height;
-    int mx, my;
-    int isPressed = 0;
+public class Mouse
+{
+    //public ShapesPanel shapePanel = new ShapesPanel();
 
-    public void init() {
-        width = getSize().width;
-        height = getSize().height;
-        setBackground( Color.black );
+    public Shape shape;
+    int x;
+    int y;
+    boolean ispressed = false;
 
-
-        addMouseListener( this );
-        addMouseMotionListener( this );
-    }
-
-    public void mouseEntered( MouseEvent e ) {
-
-    }
-    public void mouseExited( MouseEvent e ) {
-
-    }
-    public void mouseClicked( MouseEvent e ) {
-
-    }
-    public void mousePressed( MouseEvent e ) {
-        isPressed = 1;
-    }
-    public void mouseReleased( MouseEvent e ) {
-        isPressed = 0;
-    }
-    public void mouseMoved( MouseEvent e ) {
-
-        mx = e.getX();
-        my = e.getY();
-
-        repaint();
-        e.consume();
-    }
-    public void mouseDragged( MouseEvent e ) {
-        mx = e.getX();
-        my = e.getY();
-
-        repaint();
-        e.consume();
-    }
-
-    public int getMx()
+    public Mouse(Board board)
     {
-        return mx;
+        board.addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent e) {
+                if (ispressed) {
+                    board.shapes.add(new Circle(x, y, e.getX(), e.getY()));
+                }
+                board.repaint();
+            }
+        });
+
+
+        board.addMouseListener(new MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent e) {
+      //          shape = shapePanel.shape;
+                x = e.getX();
+                y = e.getY();
+                ispressed = true;
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e) {
+                ispressed = false;
+                board.repaint();
+            }
+
+        });
     }
-
-    public int getMy()
-    {
-        return my;
-    }
-
-    public int getIsPressed() {return isPressed;}
-
-    public void paint(Graphics g) {
-        g.drawLine(0,0,mx, my);
-    }
-
 }

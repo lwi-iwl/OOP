@@ -10,15 +10,17 @@ import by.bsuir.oop.lab.shapes.Circle;
 import by.bsuir.oop.lab.shapes.Line;
 import by.bsuir.oop.lab.shapes.Rectangle;
 import by.bsuir.oop.lab.shapes.Triangle;
+import by.bsuir.oop.lab.shapes.Shape;
 
-public class ShapesPanel {
+public class ShapesPanel<shape> {
     private JPanel shapesPanel;
+
+    public Shape shape;
 
     public ShapesPanel(Board board) {
         shapesPanel = new JPanel();
         Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
         Color WHITE_GRAY = new Color(220, 220, 220);
-
         JButton lineButton = new JButton("Линия");
         lineButton.setSize(sSize.width/12, sSize.height/40);
         lineButton.setLocation(sSize.width/1000, sSize.width/200);
@@ -28,8 +30,7 @@ public class ShapesPanel {
         lineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board.shapes.add(new Line(10, 10, 400, 300));
-                board.repaint();
+                shape = new Line(10,10,400,300);
             }
         });
 
@@ -42,7 +43,9 @@ public class ShapesPanel {
         rectangleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board.shapes.add(new Rectangle(10, 10, 400, 300));
+                shape = new Rectangle();
+                shape.Parameters(10, 10, 200, 200);
+                board.shapes.add(shape);
                 board.repaint();
             }
         });
@@ -57,7 +60,9 @@ public class ShapesPanel {
         circleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board.shapes.add(new Circle(10, 10, 400, 300));
+                shape = new Circle();
+                shape.Parameters(10, 10, 200, 200);
+                board.shapes.add(shape);
                 board.repaint();
             }
         });
@@ -71,7 +76,9 @@ public class ShapesPanel {
         triangleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                board.shapes.add(new Triangle(10, 10, 400, 300));
+                shape = new Triangle();
+                shape.Parameters(10, 10, 200, 200);
+                board.shapes.add(shape);
                 board.repaint();
             }
         });

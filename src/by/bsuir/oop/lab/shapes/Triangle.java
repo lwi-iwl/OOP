@@ -7,7 +7,11 @@ public class Triangle extends Shape{
     int y;
     int width;
     int height;
-    public Triangle(int x, int y, int width, int height)
+    public Triangle()
+    {
+    }
+
+    public void Parameters(int x, int y, int width, int height)
     {
         this.x = x;
         this.y = y;
