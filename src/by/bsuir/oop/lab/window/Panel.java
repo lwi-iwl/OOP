@@ -1,6 +1,7 @@
 package by.bsuir.oop.lab.window;
 import javax.swing.*;
 
+import by.bsuir.oop.lab.mouse.Mouse;
 import by.bsuir.oop.lab.paint.Board;
 import by.bsuir.oop.lab.panel_items.*;
 import by.bsuir.oop.lab.shapes.Line;
@@ -15,14 +16,14 @@ public class Panel {
 
     public Panel() {
         Board board = new Board();
-
+        Mouse mouse = new Mouse(board);
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         WorkPanel wpanel = new WorkPanel();
         mainPanel.add(wpanel.getWorkPanel());
 
-        ShapesPanel spanel = new ShapesPanel(board);
+        ShapesPanel spanel = new ShapesPanel(mouse);
         mainPanel.add(spanel.getShapesPanel());
 
         mainPanel.add(board);

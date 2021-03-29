@@ -25,12 +25,14 @@ public class Board extends JPanel{
         new Mouse(this);
     }
 
-
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+
+
         for (Shape shape : shapes) {
+            System.out.print(shapes.size());
             shape.draw(g2);
         }
     }

@@ -1,10 +1,13 @@
 package by.bsuir.oop.lab.window;
 
 
+import by.bsuir.oop.lab.factory.ShapeFactory;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Window extends JFrame {
+
 
     public static void main (String[] args) {
         JFrame jf = new JFrame("For2D");

@@ -5,19 +5,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import by.bsuir.oop.lab.paint.Board;
-import by.bsuir.oop.lab.shapes.Circle;
-import by.bsuir.oop.lab.shapes.Line;
-import by.bsuir.oop.lab.shapes.Rectangle;
-import by.bsuir.oop.lab.shapes.Triangle;
+import by.bsuir.oop.lab.factory.*;
+import by.bsuir.oop.lab.mouse.Mouse;
 import by.bsuir.oop.lab.shapes.Shape;
 
 public class ShapesPanel<shape> {
     private JPanel shapesPanel;
-
     public Shape shape;
+    public ShapeFactory shapeFactory;
 
-    public ShapesPanel(Board board) {
+    public ShapesPanel(Mouse mouse) {
+    //public ShapesPanel(Board board) {
+        shapeFactory = new LineFactory();
+        mouse.shapesFactory.add(0, shapeFactory);
         shapesPanel = new JPanel();
         Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
         Color WHITE_GRAY = new Color(220, 220, 220);
@@ -30,7 +30,8 @@ public class ShapesPanel<shape> {
         lineButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                shape = new Line(10,10,400,300);
+                shapeFactory = new LineFactory();
+                mouse.shapesFactory.set(0, shapeFactory);
             }
         });
 
@@ -43,10 +44,8 @@ public class ShapesPanel<shape> {
         rectangleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                shape = new Rectangle();
-                shape.Parameters(10, 10, 200, 200);
-                board.shapes.add(shape);
-                board.repaint();
+                shapeFactory = new RectangleFactory();
+                mouse.shapesFactory.set(0, shapeFactory);
             }
         });
 
@@ -60,10 +59,8 @@ public class ShapesPanel<shape> {
         circleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                shape = new Circle();
-                shape.Parameters(10, 10, 200, 200);
-                board.shapes.add(shape);
-                board.repaint();
+                shapeFactory = new CircleFactory();
+                mouse.shapesFactory.set(0, shapeFactory);
             }
         });
 
@@ -76,10 +73,8 @@ public class ShapesPanel<shape> {
         triangleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                shape = new Triangle();
-                shape.Parameters(10, 10, 200, 200);
-                board.shapes.add(shape);
-                board.repaint();
+                shapeFactory = new TriangleFactory();
+                mouse.shapesFactory.set(0, shapeFactory);
             }
         });
 
@@ -104,8 +99,6 @@ public class ShapesPanel<shape> {
         polygonNumber.setBackground(WHITE_GRAY);
         polygonNumber.setLayout(new BorderLayout());
         shapesPanel.add(polygonNumber);
-
-
         shapesPanel.setLayout(new BorderLayout());
     }
 
