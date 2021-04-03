@@ -4,10 +4,6 @@ import by.bsuir.oop.lab.shapes.Shape;
 
 public abstract class ShapeFactory {
 
-    public ShapeFactory(){
-
-    }
-
     public abstract Shape getShape();
 
 }

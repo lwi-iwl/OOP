@@ -1,25 +1,26 @@
 package by.bsuir.oop.lab.shapes;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Circle extends Shape {
-    int x;
-    int y;
-    int width;
-    int height;
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+    private int size;
+    private Color color;
+    private Color fill;
 
-    public Circle()
+    public void setParams(ArrayList<Integer> params, int size, Color color, Color fill)
     {
-
-    }
-
-
-    public void getParams(int x1, int y1, int x2, int y2)
-    {
-        this.x = x1;
-        this.y = y1;
-        this.width = x2 - x1;
-        this.height = y2 - y1;
+        this.size = size;
+        this.color = color;
+        this.fill = fill;
+        this.x = params.get(0);
+        this.y = params.get(1);
+        this.width = params.get(params.size()-2) - params.get(0);
+        this.height = params.get(params.size()-1) - params.get(1);
         if (width < 0) {
             x += width;
             width = -width;
@@ -30,7 +31,13 @@ public class Circle extends Shape {
         }
     }
 
+
     public void draw(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(size));
+        g.setColor(fill);
+        g.fillOval(x, y, width, height);
+        g.setColor(color);
         g.drawOval(x, y, width, height);
     }
 

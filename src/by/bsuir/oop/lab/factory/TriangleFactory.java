@@ -6,10 +6,6 @@ import by.bsuir.oop.lab.shapes.Triangle;
 
 public class TriangleFactory extends ShapeFactory {
 
-
-    public TriangleFactory() {
-
-    }
     public Shape getShape() {
         return new Triangle();
     }

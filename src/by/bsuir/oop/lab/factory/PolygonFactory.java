@@ -1,14 +1,15 @@
 package by.bsuir.oop.lab.factory;
 
 import by.bsuir.oop.lab.shapes.Circle;
+import by.bsuir.oop.lab.shapes.Polygon;
 import by.bsuir.oop.lab.shapes.Shape;
 
-public class PolygonFactory {
+public class PolygonFactory extends ShapeFactory{
 
-    PolygonFactory() {
+    public PolygonFactory() {
 
     }
-    public Shape GetShape() {
-        return new Circle();
+    public Shape getShape() {
+        return new Polygon();
     }
 }

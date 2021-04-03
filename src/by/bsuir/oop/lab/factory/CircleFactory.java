@@ -5,9 +5,7 @@ import by.bsuir.oop.lab.shapes.Shape;
 import by.bsuir.oop.lab.shapes.Triangle;
 
 public class CircleFactory extends ShapeFactory{
-    public CircleFactory() {
 
-    }
     public Shape getShape() {
         return new Circle();
     }
