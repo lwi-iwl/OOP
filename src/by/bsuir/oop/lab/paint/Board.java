@@ -11,6 +11,7 @@ import by.bsuir.oop.lab.shapes.Shape;
 public class Board extends JPanel{
 
     public ArrayList<Shape> shapes = new ArrayList<>();
+    public ArrayList<Shape> redo = new ArrayList<>();
     Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     public Board() {
@@ -28,4 +29,11 @@ public class Board extends JPanel{
         }
     }
 
+    public ArrayList<Shape> getUndo() {
+        return shapes;
+    }
+
+    public ArrayList<Shape> getRedo() {
+        return redo;
+    }
 }

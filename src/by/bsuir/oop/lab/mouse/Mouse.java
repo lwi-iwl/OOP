@@ -52,6 +52,7 @@ public class Mouse {
             public void mouseClicked(java.awt.event.MouseEvent e) {
                 if (SwingUtilities.isLeftMouseButton(e)) {
                     if (!isClicked) {
+                        board.redo.clear();
                         params.add(e.getX());
                         params.add(e.getY());
                         params.add(e.getX());

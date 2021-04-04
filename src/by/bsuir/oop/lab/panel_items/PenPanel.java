@@ -3,8 +3,6 @@ package by.bsuir.oop.lab.panel_items;
 import by.bsuir.oop.lab.mouse.Mouse;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class PenPanel extends JPanel{
@@ -45,6 +43,7 @@ public class PenPanel extends JPanel{
 
         JColorChooser fillPanel = new JColorChooser();
         fillPanel.setPreviewPanel(null);
+        fillPanel.setFocusable(false);
         fillPanel.removeChooserPanel(fillPanel.getChooserPanels()[4]);
         fillPanel.removeChooserPanel(fillPanel.getChooserPanels()[3]);
         fillPanel.removeChooserPanel(fillPanel.getChooserPanels()[2]);
