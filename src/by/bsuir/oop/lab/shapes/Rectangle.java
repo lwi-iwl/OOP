@@ -1,9 +1,10 @@
 package by.bsuir.oop.lab.shapes;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape implements Serializable {
     private int x;
     private int y;
     private int width;

@@ -1,9 +1,10 @@
 package by.bsuir.oop.lab.shapes;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Circle extends Shape {
+public class Circle extends Shape implements Serializable {
     private int x;
     private int y;
     private int width;

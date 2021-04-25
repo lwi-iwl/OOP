@@ -3,9 +3,10 @@ package by.bsuir.oop.lab.shapes;
 import by.bsuir.oop.lab.paint.Board;
 
 import java.awt.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Line extends Shape{
+public class Line extends Shape implements Serializable {
     private int x1;
     private int y1;
     private int x2;

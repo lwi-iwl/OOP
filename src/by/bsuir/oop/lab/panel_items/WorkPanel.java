@@ -1,24 +1,21 @@
 package by.bsuir.oop.lab.panel_items;
-import by.bsuir.oop.lab.mouse.Mouse;
 import by.bsuir.oop.lab.paint.Board;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.io.*;
 import javax.swing.*;
+
 
 public class WorkPanel extends JFrame{
 
-
-    private JPanel workPanel;
-
+    private String fileName;
+    private final JPanel workPanel;
+    FileChooser fileChooser = new FileChooser();
     public WorkPanel(Board board) {
         workPanel = new JPanel();
         setLocationRelativeTo(null);
         JMenuBar menu = new JMenuBar();
-        menu.add(ButtonFile());
+        menu.add(ButtonFile(board));
         menu.add(ButtonEdit(board));
         setJMenuBar(menu);
         Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -28,7 +25,7 @@ public class WorkPanel extends JFrame{
         workPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
     }
 
-    public JMenuItem ButtonFile()
+    public JMenuItem ButtonFile(Board board)
     {
         JMenu file = new JMenu("Файл");
         JMenuItem create = new JMenuItem("Создать");
@@ -39,6 +36,37 @@ public class WorkPanel extends JFrame{
         file.add(save);
         file.add(save_as);
         file.add(open);
+        create.addActionListener(e -> {
+                board.shapes.clear();
+                board.redo.clear();
+                board.oldshapes.clear();
+                fileName = null;
+                board.repaint();
+        });
+
+        save.addActionListener(e -> {
+            if (fileName == null) {
+                fileName = fileChooser.saveFile(board);
+            }
+            else {
+                try {
+                    FileOutputStream out = new FileOutputStream(fileName);
+                    ObjectOutputStream oos = new ObjectOutputStream(out);
+                    oos.writeObject(board.shapes);
+                    oos.flush();
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                }
+            }
+        });
+
+        save_as.addActionListener(e -> fileName = fileChooser.saveFile(board));
+
+        open.addActionListener(e -> {
+            System.out.println(board.oldshapes.removeAll(board.shapes));
+                fileName = fileChooser.openFile(board);
+        });
+
         return file;
     }
 

@@ -12,7 +12,7 @@ import by.bsuir.oop.lab.mouse.Mouse;
 
 public class ShapesPanel {
 
-    private JPanel shapesPanel;
+    private final JPanel shapesPanel;
     private ShapeFactory shapeFactory;
 
 

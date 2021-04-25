@@ -12,6 +12,7 @@ public class Board extends JPanel{
 
     public ArrayList<Shape> shapes = new ArrayList<>();
     public ArrayList<Shape> redo = new ArrayList<>();
+    public ArrayList<Shape> oldshapes = new ArrayList<>();
     Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     public Board() {

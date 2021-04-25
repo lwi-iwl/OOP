@@ -29,7 +29,6 @@ public class Panel {
         mainPanel.add(new PenPanel(mouse));
 
 
-
         InputMap input = board.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         input.put(KeyStroke.getKeyStroke("ctrl pressed Z"), "undo");
         input.put(KeyStroke.getKeyStroke("ctrl pressed X"), "redo");
