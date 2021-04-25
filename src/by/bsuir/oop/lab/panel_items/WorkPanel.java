@@ -8,7 +8,6 @@ import javax.swing.*;
 
 public class WorkPanel extends JFrame{
 
-    private String fileName;
     private final JPanel workPanel;
     FileChooser fileChooser = new FileChooser();
     public WorkPanel(Board board) {
@@ -36,21 +35,30 @@ public class WorkPanel extends JFrame{
         file.add(save);
         file.add(save_as);
         file.add(open);
+        NewDialog newDialog = new NewDialog(board);
+        OpenDialog openDialog = new OpenDialog(board);
         create.addActionListener(e -> {
+            board.C.clear();
+            board.C.addAll(board.shapes);
+            board.C.retainAll(board.oldshapes);
+            if (board.C.size() != board.shapes.size())
+                newDialog.setVisible();
+            else{
                 board.shapes.clear();
                 board.redo.clear();
                 board.oldshapes.clear();
-                fileName = null;
+                board.setFileName(null);
                 board.repaint();
+            }
         });
 
         save.addActionListener(e -> {
-            if (fileName == null) {
-                fileName = fileChooser.saveFile(board);
+            if (board.getFileName() == null) {
+                board.setFileName(fileChooser.saveFile(board));
             }
             else {
                 try {
-                    FileOutputStream out = new FileOutputStream(fileName);
+                    FileOutputStream out = new FileOutputStream(board.getFileName());
                     ObjectOutputStream oos = new ObjectOutputStream(out);
                     oos.writeObject(board.shapes);
                     oos.flush();
@@ -58,13 +66,25 @@ public class WorkPanel extends JFrame{
                     ioe.printStackTrace();
                 }
             }
+            board.oldshapes.clear();
+            board.oldshapes.addAll(board.shapes);
         });
 
-        save_as.addActionListener(e -> fileName = fileChooser.saveFile(board));
+        save_as.addActionListener(e -> {
+            board.setFileName(fileChooser.saveFile(board));
+            board.oldshapes.clear();
+            board.oldshapes.addAll(board.shapes);
+        });
 
         open.addActionListener(e -> {
-            System.out.println(board.oldshapes.removeAll(board.shapes));
-                fileName = fileChooser.openFile(board);
+            board.C.clear();
+            board.C.addAll(board.shapes);
+            board.C.retainAll(board.oldshapes);
+            if (board.C.size() != board.shapes.size()) {
+                openDialog.setVisible();
+            }
+            else
+                board.setFileName(fileChooser.openFile(board));
         });
 
         return file;

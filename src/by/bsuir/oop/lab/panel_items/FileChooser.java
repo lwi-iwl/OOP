@@ -45,6 +45,9 @@ public class FileChooser extends Component {
         }
         fileChooser.setVisible(true);
         if (selectedFile != null) {
+            board.shapes.clear();
+            board.redo.clear();
+            board.oldshapes.clear();
             try {
                 FileInputStream file = new FileInputStream(selectedFile.getAbsoluteFile());
                 ObjectInputStream object = new ObjectInputStream(file);
@@ -54,7 +57,8 @@ public class FileChooser extends Component {
 
                 object.close();
                 file.close();
-                board.oldshapes = board.shapes;
+                board.oldshapes.clear();
+                board.oldshapes.addAll(board.shapes);
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
             }

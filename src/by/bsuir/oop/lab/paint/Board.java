@@ -9,10 +9,11 @@ import by.bsuir.oop.lab.shapes.Shape;
 
 
 public class Board extends JPanel{
-
+    private String fileName;
     public ArrayList<Shape> shapes = new ArrayList<>();
     public ArrayList<Shape> redo = new ArrayList<>();
     public ArrayList<Shape> oldshapes = new ArrayList<>();
+    public ArrayList<Shape> C = new ArrayList<>();
     Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     public Board() {
@@ -36,5 +37,13 @@ public class Board extends JPanel{
 
     public ArrayList<Shape> getRedo() {
         return redo;
+    }
+
+    public String getFileName(){
+        return fileName;
+    }
+
+    public void setFileName(String fileName){
+        this.fileName = fileName;
     }
 }
