@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/1.iml" filepath="$PROJECT_DIR$/1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOP.iml" filepath="$PROJECT_DIR$/OOP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPcore/OOPcore.iml" filepath="$PROJECT_DIR$/OOPcore/OOPcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trapezoid/trapezoid.iml" filepath="$PROJECT_DIR$/trapezoid/trapezoid.iml" />
     </modules>
   </component>
 </project>

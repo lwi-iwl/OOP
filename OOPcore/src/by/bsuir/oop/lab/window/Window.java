@@ -1,15 +1,11 @@
 package by.bsuir.oop.lab.window;
 
 
-import by.bsuir.oop.lab.paint.Board;
+import by.bsuir.oop.lab.OOPcore.PluginLoader;
 import by.bsuir.oop.lab.shapes.Shape;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class Window extends JFrame {
@@ -18,7 +14,7 @@ public class Window extends JFrame {
     private ArrayList<by.bsuir.oop.lab.shapes.Shape> shapes = new ArrayList<>();
     private ArrayList<Shape> redo = new ArrayList<>();
     Panel mpanel = new Panel();
-
+    PluginLoader pluginLoader = new PluginLoader();
     public Window() {
         JFrame jf = new JFrame("For2D");
         Dimension sSize = Toolkit.getDefaultToolkit().getScreenSize();

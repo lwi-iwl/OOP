@@ -1,10 +1,11 @@
-package by.bsuir.oop.lab.shapes;
+package trapezoid;
+import by.bsuir.oop.lab.shapes.Shape;
 
 import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Circle extends Shape implements Serializable {
+public class TrapezoidS extends Shape implements Serializable {
     private int x;
     private int y;
     private int width;
@@ -41,5 +42,4 @@ public class Circle extends Shape implements Serializable {
         g.setColor(color);
         g.drawOval(x, y, width, height);
     }
-
 }

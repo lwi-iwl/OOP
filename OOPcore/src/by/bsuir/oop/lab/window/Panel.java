@@ -4,10 +4,8 @@ import javax.swing.*;
 import by.bsuir.oop.lab.mouse.Mouse;
 import by.bsuir.oop.lab.paint.Board;
 import by.bsuir.oop.lab.panel_items.*;
-import by.bsuir.oop.lab.shapes.Shape;
 
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 
 
 public class Panel {

@@ -2,9 +2,9 @@ package by.bsuir.oop.lab.panel_items;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
 
+import by.bsuir.oop.lab.OOPcore.PluginLoader;
 import by.bsuir.oop.lab.factory.*;
 import by.bsuir.oop.lab.mouse.Mouse;
 
@@ -17,6 +17,7 @@ public class ShapesPanel {
 
 
     public ShapesPanel(Mouse mouse) {
+        List<ShapeFactory> factories = new PluginLoader().getEveryFactory();
         shapeFactory = new LineFactory();
         mouse.setShapeFactory(shapeFactory);
         shapesPanel = new JPanel();
@@ -29,7 +30,7 @@ public class ShapesPanel {
         lineButton.setLayout(new BorderLayout());
         shapesPanel.add(lineButton);
         lineButton.addActionListener(e -> {
-            shapeFactory = new LineFactory();
+            shapeFactory = factories.get(0);
             mouse.setShapeFactory(shapeFactory);
         });
 

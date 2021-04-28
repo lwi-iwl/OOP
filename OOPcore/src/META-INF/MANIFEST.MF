@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: C:\Users\nikst\git\OOP\OOPcore\src\by\bsuir\oop\lab\window\W
+ indow.java
+
