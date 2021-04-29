@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
 Export-Package: trapezoid
-Class-Path: trapezoid.jar
+Class-Path: plugins/trapezoid.jar
