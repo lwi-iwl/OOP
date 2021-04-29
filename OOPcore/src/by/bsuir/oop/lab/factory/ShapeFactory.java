@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public abstract class ShapeFactory {
 
     public abstract Shape getShape();
-
+    public abstract String getName();
     public static List<ShapeFactory> getServices(ModuleLayer layer) {
         ServiceLoader<ShapeFactory> load = ServiceLoader
                 .load(layer, ShapeFactory.class);

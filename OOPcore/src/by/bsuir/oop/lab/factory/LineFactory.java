@@ -10,4 +10,8 @@ public class LineFactory extends ShapeFactory {
     public Shape getShape() {
         return new Line();
     }
+
+    public String getName(){
+        return "Линия";
+    }
 }

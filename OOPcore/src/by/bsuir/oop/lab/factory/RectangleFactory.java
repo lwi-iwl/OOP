@@ -11,4 +11,8 @@ public class RectangleFactory extends ShapeFactory{
     public Shape getShape() {
         return new Rectangle();
     }
+
+    public String getName(){
+        return "Прямоугольник";
+    }
 }

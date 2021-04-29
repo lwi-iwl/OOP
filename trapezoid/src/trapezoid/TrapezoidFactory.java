@@ -7,4 +7,8 @@ public class TrapezoidFactory extends ShapeFactory {
     public Shape getShape() {
         return new TrapezoidS();
     }
+
+    public String getName(){
+        return "Трапеция";
+    }
 }

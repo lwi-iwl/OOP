@@ -8,4 +8,8 @@ public class TriangleFactory extends ShapeFactory {
     public Shape getShape() {
         return new Triangle();
     }
+
+    public String getName(){
+        return "Треугольник";
+    }
 }

@@ -11,4 +11,8 @@ public class PolygonFactory extends ShapeFactory{
     public Shape getShape() {
         return new Polygon();
     }
+
+    public String getName(){
+        return "Многоугольник";
+    }
 }

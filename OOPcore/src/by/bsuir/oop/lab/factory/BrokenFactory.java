@@ -7,4 +7,8 @@ public class BrokenFactory extends ShapeFactory{
     public Shape getShape() {
         return new Broken();
     }
+
+    public String getName(){
+        return "Ломаная";
+    }
 }
