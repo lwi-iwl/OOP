@@ -17,12 +17,12 @@ public class PluginLoader {
 
     public List<ShapeFactory> getEveryFactory() {
 
-        Path pluginsDir = Paths.get("OOPcore/plugins");
+        Path pluginsDir = Paths.get("plugins");
+        System.out.println(pluginsDir.toAbsolutePath());
         ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
 
-        Set<ModuleReference> all = pluginsFinder
-                .findAll();
-        List<String> plugins = all
+        List<String> plugins = pluginsFinder
+                .findAll()
                 .stream()
                 .map(ModuleReference::descriptor)
                 .map(ModuleDescriptor::name)
@@ -35,20 +35,19 @@ public class PluginLoader {
 
         ModuleLayer layer = ModuleLayer
                 .boot()
-                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader())
-                .boot();
+                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
         return ShapeFactory.getServices(layer);
 
     }
 
     public List<Shape> getEveryShape() {
 
-        Path pluginsDir = Paths.get("OOPcore/plugins");
+        Path pluginsDir = Paths.get("plugins");
+        System.out.println(pluginsDir.toAbsolutePath());
         ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
 
-        Set<ModuleReference> all = pluginsFinder
-                .findAll();
-        List<String> plugins = all
+        List<String> plugins = pluginsFinder
+                .findAll()
                 .stream()
                 .map(ModuleReference::descriptor)
                 .map(ModuleDescriptor::name)
@@ -61,8 +60,8 @@ public class PluginLoader {
 
         ModuleLayer layer = ModuleLayer
                 .boot()
-                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader())
-                .boot();
+                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
+
         return Shape.getServices(layer);
     }
 }

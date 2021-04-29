@@ -62,7 +62,7 @@ public class FileChooser extends Component {
                     board.oldshapes.addAll(board.shapes);
 
                 } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
+                    System.out.println(ex.toString());
                 }
                 return selectedFile.getAbsolutePath();
             }
