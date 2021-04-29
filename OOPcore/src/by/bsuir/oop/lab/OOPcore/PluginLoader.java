@@ -16,48 +16,17 @@ import java.util.stream.Collectors;
 public class PluginLoader {
 
     public List<ShapeFactory> getEveryFactory() {
-        Path pluginsDir = Paths.get("OOPcore/plugins");
-        ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
-
-        Set<ModuleReference> all = pluginsFinder
-                .findAll();
-        List<String> plugins = all
-                .stream()
-                .map(ModuleReference::descriptor)
-                .map(ModuleDescriptor::name)
-                .collect(Collectors.toList());
-
-        Configuration pluginsConfiguration = ModuleLayer
-                .boot()
-                .configuration()
-                .resolve(pluginsFinder, ModuleFinder.of(), plugins);
 
         ModuleLayer layer = ModuleLayer
-                .boot()
-                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
+                .boot();
         return ShapeFactory.getServices(layer);
 
     }
 
     public List<Shape> getEveryShape() {
-        Path pluginsDir = Paths.get("OOPcore/plugins");
-        ModuleFinder pluginsFinder = ModuleFinder.of(pluginsDir);
-
-        List<String> plugins = pluginsFinder
-                .findAll()
-                .stream()
-                .map(ModuleReference::descriptor)
-                .map(ModuleDescriptor::name)
-                .collect(Collectors.toList());
-
-        Configuration pluginsConfiguration = ModuleLayer
-                .boot()
-                .configuration()
-                .resolve(pluginsFinder, ModuleFinder.of(), plugins);
 
         ModuleLayer layer = ModuleLayer
-                .boot()
-                .defineModulesWithOneLoader(pluginsConfiguration, ClassLoader.getSystemClassLoader());
+                .boot();
         return Shape.getServices(layer);
     }
 }

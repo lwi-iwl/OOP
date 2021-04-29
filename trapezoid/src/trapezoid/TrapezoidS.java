@@ -1,9 +1,11 @@
 package trapezoid;
+
 import by.bsuir.oop.lab.shapes.Shape;
 
 import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+
 
 public class TrapezoidS extends Shape implements Serializable {
     private int x;

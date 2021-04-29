@@ -23,6 +23,7 @@ public class ShapesPanel {
         shapesPanel = new JPanel();
         Color WHITE_GRAY = new Color(220, 220, 220);
         List<ShapeFactory> factories = new PluginLoader().getEveryFactory();
+        System.out.println(factories);
         for (ShapeFactory factory : factories) {
             JButton button = new JButton(factory.getName());
             button.setSize(sSize.width / 12, sSize.height / 40);

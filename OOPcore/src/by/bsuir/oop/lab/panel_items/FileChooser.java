@@ -27,10 +27,7 @@ public class FileChooser extends Component {
                     object.writeObject(board.shapes);
                     System.out.println(board.shapes);
                     object.flush();
-                    FileInputStream file1 = new FileInputStream(selectedFile.getAbsolutePath() + ".json");
-                    ObjectInputStream object1 = new ObjectInputStream(file1);
-                    System.out.println(object1.readObject());
-                } catch (IOException | ClassNotFoundException ex) {
+                } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 }
                 return selectedFile.getAbsolutePath();

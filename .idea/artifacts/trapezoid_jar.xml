@@ -3,6 +3,9 @@
     <output-path>$PROJECT_DIR$</output-path>
     <root id="archive" name="trapezoid.jar">
       <element id="module-output" name="trapezoid" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/OOPcore/src/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>
