@@ -16,13 +16,13 @@ public class ShapesPanel {
     private ShapeFactory shapeFactory;
     private int xLocation = sSize.width / 1000;
     private int yLocation = sSize.width / 200;
-
     public ShapesPanel(Mouse mouse) {
+        PluginLoader pluginLoader = new PluginLoader();
         shapeFactory = new LineFactory();
         mouse.setShapeFactory(shapeFactory);
         shapesPanel = new JPanel();
         Color WHITE_GRAY = new Color(220, 220, 220);
-        List<ShapeFactory> factories = new PluginLoader().getEveryFactory();
+        List<ShapeFactory> factories = pluginLoader.getEveryFactory();
         System.out.println(factories);
         for (ShapeFactory factory : factories) {
             JButton button = new JButton(factory.getName());

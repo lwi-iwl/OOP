@@ -1,5 +1,7 @@
 package by.bsuir.oop.lab.panel_items;
 
+import by.bsuir.oop.lab.OOPcore.PluginLoader;
+import by.bsuir.oop.lab.factory.ShapeFactory;
 import by.bsuir.oop.lab.paint.Board;
 import by.bsuir.oop.lab.shapes.Shape;
 
@@ -53,6 +55,7 @@ public class FileChooser extends Component {
                 try {
                     FileInputStream file = new FileInputStream(selectedFile.getAbsoluteFile());
                     ObjectInputStream object = new ObjectInputStream(file);
+                    System.out.println(object);
                     board.shapes = (ArrayList<Shape>) object.readObject();
                     board.redo.clear();
                     board.repaint();
