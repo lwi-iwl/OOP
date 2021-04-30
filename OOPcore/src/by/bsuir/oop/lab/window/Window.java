@@ -6,6 +6,10 @@ import by.bsuir.oop.lab.shapes.Shape;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.lang.reflect.Constructor;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 
 public class Window extends JFrame {
@@ -31,6 +35,7 @@ public class Window extends JFrame {
     public static void main(String[] args) {
         Window window = new Window();
     }
+
 
 }
 
