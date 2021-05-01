@@ -10,7 +10,6 @@ import java.lang.module.ModuleReference;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class PluginLoader {
